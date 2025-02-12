@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+  backend:
+    build: .
+    ports:
+      - "5000:5000"
+    environment:
+      - NODE_ENV=production
+      - JWT_SECRET=your_jwt_secret_key
+      - VIDEO_SDK_API_KEY=your_video_sdk_api_key
+      - VIDEO_SDK_SECRET_KEY=your_video_sdk_secret_key
+    volumes:
+      - .:/app
+      - /app/node_modules
