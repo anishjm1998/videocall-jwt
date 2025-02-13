@@ -1,21 +1,22 @@
 import { Module } from '@nestjs/common';
-import { TypeOrmModule } from '@nestjs/typeorm';
+import { MongooseModule } from '@nestjs/mongoose';
 import { AuthModule } from './auth/auth.module';
-import { UsersModule } from './users/users.module';
+import { UserModule } from './users/users.module';
 import { VideoSdkModule } from './video-sdk/video-sdk.module';
-import { User } from './users/user.entity';
+import * as dotenv from 'dotenv';
+
+dotenv.config(); // Load environment variables
 
 @Module({
   imports: [
-    TypeOrmModule.forRoot({
-      type: 'sqlite',
-      database: 'database.sqlite',
-      entities: [User],
-      synchronize: true,
-    }),
+    MongooseModule.forRoot(process.env.MONGO_URI!),
     AuthModule,
-    UsersModule,
+    UserModule,
     VideoSdkModule,
   ],
 })
-export class AppModule {}
+export class AppModule {
+  constructor() {
+    console.log('✅ Connected to MongoDB'); // Log when connected
+  }
+}

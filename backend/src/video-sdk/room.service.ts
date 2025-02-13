@@ -4,7 +4,7 @@ import { generateToken } from './generateToken';
 
 @Injectable()
 export class RoomService {
-  async createRoom(roomId: string, roomName: string) {
+  async createRoom(roomId: string, roomName: string): Promise<any> {
     const token = generateToken();
     const response = await axios.post(
       'https://api.videosdk.live/v2/rooms',

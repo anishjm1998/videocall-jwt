@@ -1,9 +1,8 @@
+// video-sdk.module.ts
 import { Module } from '@nestjs/common';
-import { RoomController } from './roomController';
-import { RoomService } from './room.service';
+import { AuthModule } from '../auth/auth.module'; // Import AuthModule here
 
 @Module({
-  controllers: [RoomController],
-  providers: [RoomService],
+  imports: [AuthModule], // Import the AuthModule
 })
 export class VideoSdkModule {}
