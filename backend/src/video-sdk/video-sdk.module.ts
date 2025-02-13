@@ -1,7 +1,9 @@
 import { Module } from '@nestjs/common';
-import { VideoSdkService } from './video-sdk.service';
+import { RoomController } from './roomController';
+import { RoomService } from './room.service';
 
 @Module({
-  providers: [VideoSdkService]
+  controllers: [RoomController],
+  providers: [RoomService],
 })
 export class VideoSdkModule {}

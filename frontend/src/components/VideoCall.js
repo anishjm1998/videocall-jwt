@@ -3,7 +3,6 @@ import { MeetingProvider, MeetingConsumer, useMeeting, useParticipant } from '@v
 import { Grid, Button, IconButton, Paper, Typography, Box, Container, AppBar, Toolbar } from '@mui/material';
 import { Mic, MicOff, Videocam, VideocamOff, CallEnd } from '@mui/icons-material';
 
-// Participant Tile Component
 const ParticipantTile = ({ participant }) => {
   const { webcamStream, micStream, isLocal } = useParticipant(participant.id);
 
@@ -44,7 +43,7 @@ const VideoCallUI = ({ meetingId }) => {
 
   const handleLeave = () => {
     leave();
-    window.location.reload(); // Refresh the page after leaving
+    window.location.reload();
   };
 
   return (
